@@ -16,22 +16,14 @@ class BookCell: UITableViewCell {
     
     @IBAction func buttonTapped(_ sender: Any) {
         delegate?.toggleHasBeenRead(cell: self)
+        updateViews()
     }
     
     var book: Book?
     
     func updateViews() {
         titleLabel.text = book?.title
-        switch book?.hasBeenRead {
-        case false:
-            buttonLabel.imageView?.image = UIImage(named: "unchecked")
-        case true:
-            buttonLabel.imageView?.image = UIImage(named: "checked")
-        case .none:
-            print("idk")
-        case .some(_):
-            print("idk man")
-        }
+        buttonLabel.setImage(book!.hasBeenRead ? UIImage(named: "unchecked") : UIImage(named: "checked"), for: .normal)
     }
     
     var delegate: BookCellDelegate?

@@ -10,10 +10,15 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
     
+    var book: Book?
+    var bookController: BookController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
+    
+    
     
     @IBOutlet var titleLabel: UITextField!
     @IBOutlet var reasonsTextView: UITextView!
@@ -22,22 +27,20 @@ class BookDetailViewController: UIViewController {
         
         guard let title = titleLabel.text,
             let reasons = reasonsTextView.text,
-            !titleLabel.text!.isEmpty,
-            !reasonsTextView.text.isEmpty else {return}
+            !title.isEmpty,
+            !reasons.isEmpty else {return}
         
         if book == nil {
             bookController?.create(title: title, reasons: reasons)
         } else {
             bookController?.editBook(book: book!, newTitle: title, newReasons: reasons)
         }
+        navigationController?.popViewController(animated: true)
     }
-    
-    var bookController: BookController?
-    var book: Book?
     
     func updateViews() {
         if book == nil {
-            titleLabel.text = "Add a New Book"
+            title = "Add a New Book"
         } else {
             titleLabel.text = book?.title
             reasonsTextView.text = book?.reasonsToRead

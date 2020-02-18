@@ -30,11 +30,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WND-Kp-CNc">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WND-Kp-CNc">
                                             <rect key="frame" x="354" y="6" width="52" height="52"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="WND-Kp-CNc" secondAttribute="height" multiplier="1:1" id="fDG-jp-XL1"/>
                                             </constraints>
+                                            <state key="normal" image="unchecked"/>
                                             <connections>
                                                 <action selector="buttonTapped:" destination="kCt-EU-5xL" eventType="touchUpInside" id="1Bf-bh-cJP"/>
                                             </connections>
@@ -73,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1157.9710144927537" y="-13.392857142857142"/>
         </scene>
-        <!--Add a new book-->
+        <!--Book Detail View Controller-->
         <scene sceneID="ZSZ-qx-scU">
             <objects>
                 <viewController id="ht4-VH-RlF" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +110,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="46l-Lf-Qak"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a new book" id="ur1-te-kTt">
+                    <navigationItem key="navigationItem" id="ur1-te-kTt">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nik-CM-WG5">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="ht4-VH-RlF" id="Pty-Jm-KsU"/>
@@ -142,11 +143,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIu-2O-myZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="247.82608695652175" y="-13.392857142857142"/>
+            <point key="canvasLocation" x="391" y="-13"/>
         </scene>
     </scenes>
     <resources>
         <image name="Book Title:" width="16" height="16"/>
+        <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5pj-aU-2K5"/>

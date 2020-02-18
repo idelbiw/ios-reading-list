@@ -11,7 +11,7 @@ import Foundation
 class BookController {
     
     //MARK: -important variables-
-    var books: [Book] = [Book(reasons: "klaskhjfjklashflka", title: "dsfsdfsdfsdf")]
+    var books: [Book] = []
     
     var readBooks: [Book] {
         var readBooks: [Book] = []
@@ -22,7 +22,9 @@ class BookController {
         }
         return readBooks
     }
-    
+    init() {
+        loadFromPersistentStore()
+    }
     var unreadBooks: [Book] {
         var unreadBooks: [Book] = []
         for book in books {
