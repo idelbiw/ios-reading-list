@@ -11,6 +11,7 @@ import Foundation
 class BookController {
     
     //MARK: -important variables-
+    
     var books: [Book] = []
     
     var readBooks: [Book] {
@@ -22,9 +23,11 @@ class BookController {
         }
         return readBooks
     }
+    
     init() {
         loadFromPersistentStore()
     }
+    
     var unreadBooks: [Book] {
         var unreadBooks: [Book] = []
         for book in books {
@@ -41,7 +44,10 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    
+    
     //MARK: -save and load functions-
+    
     func saveToPersistentStore() {
         let encoder = PropertyListEncoder()
         guard let url = readingListURL else {return}
@@ -64,6 +70,8 @@ class BookController {
             print("could not load books, error code: \(error)")
         }
     }
+    
+    
     
     //MARK: -CRUD Methods-
     func create(title: String, reasons: String) {

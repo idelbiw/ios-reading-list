@@ -11,6 +11,7 @@ import UIKit
 class BookCell: UITableViewCell {
     
     //MARK: -Actions and Outlets-
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var buttonLabel: UIButton!
     
@@ -19,11 +20,15 @@ class BookCell: UITableViewCell {
         updateViews()
     }
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     func updateViews() {
         titleLabel.text = book?.title
-        buttonLabel.setImage(book!.hasBeenRead ? UIImage(named: "unchecked") : UIImage(named: "checked"), for: .normal)
+        buttonLabel.setImage(book!.hasBeenRead ? UIImage(named: "checked") : UIImage(named: "unchecked"), for: .normal)
     }
     
     var delegate: BookCellDelegate?
